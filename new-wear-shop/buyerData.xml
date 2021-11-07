@@ -1,36 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<buyers>
-    <buyer name="Ivan">
+<buyers xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="file:///D:/new/java/new-wear-shop/buyerData.xsd">
+    <buyer firstName="Ivan">
         <money>600.00</money>
         <sizes>
             <size>
-                <name>height</name>
-                <param>170</param>
+                <param>height</param>
+                <paramValue>170</paramValue>
             </size>
             <size>
-                <name>chest</name>
-                <param>80</param>
+                <param>chest</param>
+                <paramValue>80</paramValue>
             </size>
             <size>
-                <name>waist</name>
-                <param>50</param>
+                <param>waist</param>
+                <paramValue>50</paramValue>
             </size>
         </sizes>
     </buyer>
-    <buyer name="Vladimir">
+    <buyer firstName="Vladimir">
         <money>800.00</money>
         <sizes>
             <size>
-                <name>height</name>
-                <param>180</param>
+                <param>height</param>
+                <paramValue>180</paramValue>
             </size>
             <size>
-                <name>chest</name>
-                <param>85</param>
+                <param>chest</param>
+                <paramValue>85</paramValue>
             </size>
             <size>
-                <name>waist</name>
-                <param>55</param>
+                <param>waist</param>
+                <paramValue>55</paramValue>
             </size>
         </sizes>
     </buyer>

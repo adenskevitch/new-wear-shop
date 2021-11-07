@@ -22,20 +22,19 @@ public class Main {
     public static void main(String[] args) {
         ParsableImpl parser = new ParsableImpl();
         Map<String, Integer> sizes = new HashMap<>();
-        Double money = null;
+        Double money = 0.0;
 
         try {
             NodeList buyerList = parser.parse().getElementsByTagName("buyer");
             for (int i = 0; i < buyerList.getLength(); i++) {
                 Node buyerItem = buyerList.item(i);
-                if ("Vladimir".equals(buyerItem.getAttributes().getNamedItem("name").getNodeValue())) {
+                if ("Vladimir".equals(buyerItem.getAttributes().getNamedItem("firstName").getNodeValue())) {
                     NodeList buyerDataList = buyerItem.getChildNodes();
                     for (int j = 0; j < buyerDataList.getLength(); j++) {
                         Node buyerDataItem = buyerDataList.item(j);
                         switch (buyerDataItem.getNodeName()) {
                             case "money": {
                                 money = Double.valueOf(buyerDataItem.getTextContent());
-                                System.out.println(money);
                             }
                             break;
                             case "sizes": {
@@ -43,7 +42,7 @@ public class Main {
                                 for (int k = 0; k < sizeList.getLength(); k++) {
                                     if (sizeList.item(k).getNodeType() == Node.ELEMENT_NODE) {
                                         Element e1 = (Element) sizeList.item(k);
-                                        sizes.put(e1.getElementsByTagName("name").item(0).getTextContent(), Integer.parseInt(e1.getElementsByTagName("param").item(0).getTextContent()));
+                                        sizes.put(e1.getElementsByTagName("param").item(0).getTextContent(), Integer.parseInt(e1.getElementsByTagName("paramValue").item(0).getTextContent()));
                                     }
                                 }
                             }
@@ -56,12 +55,7 @@ public class Main {
                 SAXException e) {
             LOGGER.debug(e.getMessage());
         }
-
         Buyer buyer = new Buyer(sizes, money);
-
-        System.out.println(sizes);
-        System.out.println(money);
-
 
         FabricParameter pantsFabric = new FabricParameter(Color.BLUE, Fabric.JEANS, buyer);
         FabricParameter outerwearFabric = new FabricParameter(Color.BROWN, Fabric.LEATHER, buyer);
