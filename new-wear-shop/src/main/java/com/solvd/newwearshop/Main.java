@@ -14,6 +14,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.IntStream;
 
 public class Main {
 
@@ -22,7 +23,7 @@ public class Main {
     public static void main(String[] args) {
         ParsableImpl parser = new ParsableImpl();
         Map<String, Integer> sizes = new HashMap<>();
-        Double money = 0.0;
+        double money = 0.0;
 
         try {
             NodeList buyerList = parser.parse().getElementsByTagName("buyer");
@@ -34,17 +35,15 @@ public class Main {
                         Node buyerDataItem = buyerDataList.item(j);
                         switch (buyerDataItem.getNodeName()) {
                             case "money": {
-                                money = Double.valueOf(buyerDataItem.getTextContent());
+                                money = Double.parseDouble(buyerDataItem.getTextContent());
                             }
                             break;
                             case "sizes": {
                                 NodeList sizeList = buyerDataItem.getChildNodes();
-                                for (int k = 0; k < sizeList.getLength(); k++) {
-                                    if (sizeList.item(k).getNodeType() == Node.ELEMENT_NODE) {
-                                        Element e1 = (Element) sizeList.item(k);
-                                        sizes.put(e1.getElementsByTagName("param").item(0).getTextContent(), Integer.parseInt(e1.getElementsByTagName("paramValue").item(0).getTextContent()));
-                                    }
-                                }
+                                IntStream.range(0, sizeList.getLength())
+                                        .filter(k -> sizeList.item(k).getNodeType() == Node.ELEMENT_NODE)
+                                        .mapToObj(k -> (Element) sizeList.item(k))
+                                        .forEach(e1 -> sizes.put(e1.getElementsByTagName("param").item(0).getTextContent(), Integer.parseInt(e1.getElementsByTagName("paramValue").item(0).getTextContent())));
                             }
                             break;
                         }
