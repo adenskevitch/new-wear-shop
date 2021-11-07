@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<buyers>
+    <buyer name="Ivan">
+        <money>600.00</money>
+        <sizes>
+            <size>
+                <name>height</name>
+                <param>170</param>
+            </size>
+            <size>
+                <name>chest</name>
+                <param>80</param>
+            </size>
+            <size>
+                <name>waist</name>
+                <param>50</param>
+            </size>
+        </sizes>
+    </buyer>
+    <buyer name="Vladimir">
+        <money>800.00</money>
+        <sizes>
+            <size>
+                <name>height</name>
+                <param>180</param>
+            </size>
+            <size>
+                <name>chest</name>
+                <param>85</param>
+            </size>
+            <size>
+                <name>waist</name>
+                <param>55</param>
+            </size>
+        </sizes>
+    </buyer>
+</buyers>

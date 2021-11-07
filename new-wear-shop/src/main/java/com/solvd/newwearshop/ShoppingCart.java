@@ -24,15 +24,14 @@ public class ShoppingCart {
     }
 
     public void calculatedTotalPrice() {
-        this.totalPrice = prices.stream()
-                .reduce(0.00, (acc, x) -> acc = x);
+        prices.forEach(price -> this.totalPrice += price);
     }
 
     public void printCheck() {
         LOGGER.debug("Date: " + LocalDateTime.now().toLocalDate());
         LOGGER.debug("Time: " + LocalDateTime.now().toLocalTime().withNano(0));
         wearBasket.getProduct().forEach(product -> LOGGER.debug(product.getProductType().getDescription() + " . ......" + product.getProductCost()));
-        LOGGER.debug("Total...." + totalPrice);
+        LOGGER.debug("Total...." + this.totalPrice);
     }
 
     public double getTotalPrice() {

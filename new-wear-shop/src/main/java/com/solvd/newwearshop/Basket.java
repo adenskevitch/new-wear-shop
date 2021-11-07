@@ -2,7 +2,7 @@ package com.solvd.newwearshop;
 
 import java.util.List;
 
-public class Basket<E extends com.solvd.newwearshop.Product> {
+public class Basket<E extends Product> {
 
     private List<E> product;
 
