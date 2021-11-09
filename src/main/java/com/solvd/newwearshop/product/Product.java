@@ -1,4 +1,4 @@
-package com.solvd.newwearshop;
+package com.solvd.newwearshop.product;
 
 public abstract class Product {
 
