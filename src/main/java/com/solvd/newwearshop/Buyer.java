@@ -1,13 +1,11 @@
 package com.solvd.newwearshop;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
-
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
 import java.util.*;
 
+@XmlRootElement(namespace = "com.solvd.newwearshop.Shop")
 public class Buyer {
-
-    private static final Logger LOGGER = LogManager.getLogger();
 
     private double money;
     private Map<String, Integer> sizes;
@@ -15,6 +13,9 @@ public class Buyer {
     public Buyer(Map<String, Integer> sizes, Double money) {
         this.sizes = sizes;
         this.money = money;
+    }
+
+    public Buyer() {
     }
 
     @Override
@@ -33,10 +34,12 @@ public class Buyer {
         return sizes;
     }
 
+    @XmlElement
     public void setSizes(Map<String, Integer> sizes) {
         this.sizes = sizes;
     }
 
+    @XmlElement
     public void setMoney(double money) {
         this.money = this.money + money;
     }

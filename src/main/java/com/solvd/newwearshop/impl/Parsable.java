@@ -1,9 +1,9 @@
 package com.solvd.newwearshop.impl;
 
-import com.solvd.newwearshop.Buyer;
+import javax.xml.bind.JAXBException;
 
-public interface Parsable {
+public interface Parsable<T> {
 
-    Buyer parse(String pathToXml, String firstName);
+    T parse(String pathToXml) throws JAXBException;
 
 }

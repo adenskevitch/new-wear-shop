@@ -15,7 +15,9 @@ import javax.xml.parsers.ParserConfigurationException;
 import java.io.File;
 import java.io.IOException;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 public class DomParsableImpl implements Parsable {
@@ -30,15 +32,6 @@ public class DomParsableImpl implements Parsable {
 
     private NodeList createBuyersList(Document document) {
         return document.getElementsByTagName("buyer");
-    }
-
-    private Node findBuyerByName(NodeList buyerList, String firstName) {
-        for (int i = 0; i < buyerList.getLength(); i++) {
-            if (firstName.equals(buyerList.item(i).getAttributes().getNamedItem("firstName").getNodeValue())) {
-                return buyerList.item(i);
-            }
-        }
-        return null;
     }
 
     private Double getMoney(Node targetBuyer) {
@@ -60,18 +53,21 @@ public class DomParsableImpl implements Parsable {
                                 .mapToObj(k ->
                                         (Element) sizeList.item(k))
                                 .forEach(e1 ->
-                                        sizes.put(e1.getElementsByTagName("param").item(0).getTextContent(),
-                                                Integer.parseInt(e1.getElementsByTagName("paramValue").item(0).getTextContent()))));
+                                        sizes.put(e1.getElementsByTagName("key").item(0).getTextContent(),
+                                                Integer.parseInt(e1.getElementsByTagName("value").item(0).getTextContent()))));
         return sizes;
-
     }
 
-    private Buyer getBuyerData(Node targetBuyer) {
-        return new Buyer(getSizes(targetBuyer), getMoney(targetBuyer));
+    private List<Buyer> getBuyerData(NodeList buyerList) {
+        return IntStream.range(0, buyerList.getLength())
+                .mapToObj(buyerList::item)
+                .map(targetBuyer ->
+                        new Buyer(getSizes(targetBuyer), getMoney(targetBuyer)))
+                .collect(Collectors.toList());
     }
 
     @Override
-    public Buyer parse(String pathToXml, String firstName) {
+    public List<Buyer> parse(String pathToXml) {
         Document document = null;
         try {
             document = createDocument(pathToXml);
@@ -79,7 +75,6 @@ public class DomParsableImpl implements Parsable {
             LOGGER.debug(e.getMessage());
         }
         NodeList buyerList = createBuyersList(document);
-        Node targetBuyer = findBuyerByName(buyerList, firstName);
-        return getBuyerData(targetBuyer);
+        return getBuyerData(buyerList);
     }
 }

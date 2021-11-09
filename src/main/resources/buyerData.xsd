@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
 
-    <xs:element name="buyers" type="byersType"/>
+    <xs:element name="shop" type="byersType"/>
 
     <xs:simpleType name="paramType">
         <xs:restriction base="xs:string"/>
@@ -17,14 +17,14 @@
 
     <xs:complexType name="sizeType">
         <xs:sequence>
-            <xs:element type="paramType" name="param"/>
-            <xs:element type="paramValueType" name="paramValue"/>
+            <xs:element type="paramType" name="key"/>
+            <xs:element type="paramValueType" name="value"/>
         </xs:sequence>
     </xs:complexType>
 
     <xs:complexType name="sizesType">
         <xs:sequence minOccurs="3" maxOccurs="3">
-            <xs:element type="sizeType" name="size"/>
+            <xs:element type="sizeType" name="entry"/>
         </xs:sequence>
     </xs:complexType>
 
