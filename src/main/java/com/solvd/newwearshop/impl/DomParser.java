@@ -20,7 +20,7 @@ import java.util.Map;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
-public class DomParsableImpl implements Parsable {
+public class DomParser implements Parser {
 
     private static final Logger LOGGER = LogManager.getLogger();
 

@@ -8,7 +8,7 @@ import javax.xml.bind.JAXBException;
 import javax.xml.bind.Unmarshaller;
 import java.io.File;
 
-public class JaxbParsableImpl implements Parsable {
+public class JaxbParser implements Parser {
 
     @Override
     public Shop parse(String pathToXml) throws JAXBException {

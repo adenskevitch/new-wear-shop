@@ -1,20 +1,21 @@
 package com.solvd.newwearshop;
 
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.*;
 import java.util.ArrayList;
 import java.util.List;
 
-@XmlRootElement
+@XmlRootElement(name = "shop")
+@XmlAccessorType(XmlAccessType.FIELD)
+@XmlAccessorOrder(XmlAccessOrder.ALPHABETICAL)
 public class Shop {
 
+    @XmlElement(name = "buyer")
     private List<Buyer> buyers = new ArrayList<>();
 
     public List<Buyer> getBuyers() {
         return buyers;
     }
 
-    @XmlElement(name = "buyer")
     public void setBuyers(List<Buyer> buyers) {
         this.buyers = buyers;
     }

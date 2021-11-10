@@ -1,14 +1,19 @@
 package com.solvd.newwearshop;
 
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.*;
 import java.util.*;
 
 @XmlRootElement(namespace = "com.solvd.newwearshop.Shop")
+@XmlType(name = "buyer", propOrder = {"money", "sizes"})
+@XmlAccessorType(XmlAccessType.FIELD)
 public class Buyer {
 
+    @XmlElement(name = "money")
     private double money;
+    @XmlElement(name = "sizes")
     private Map<String, Integer> sizes;
+    @XmlAttribute(name = "firstName")
+    private String firstName;
 
     public Buyer(Map<String, Integer> sizes, Double money) {
         this.sizes = sizes;
@@ -23,6 +28,7 @@ public class Buyer {
         return "Buyer{" +
                 "money=" + money +
                 ", sizes=" + sizes +
+                ", firstName='" + firstName + '\'' +
                 '}';
     }
 
@@ -34,13 +40,19 @@ public class Buyer {
         return sizes;
     }
 
-    @XmlElement
     public void setSizes(Map<String, Integer> sizes) {
         this.sizes = sizes;
     }
 
-    @XmlElement
     public void setMoney(double money) {
         this.money = this.money + money;
+    }
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
     }
 }

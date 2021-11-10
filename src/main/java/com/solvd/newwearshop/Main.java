@@ -1,7 +1,7 @@
 package com.solvd.newwearshop;
 
-import com.solvd.newwearshop.impl.DomParsableImpl;
-import com.solvd.newwearshop.impl.JaxbParsableImpl;
+import com.solvd.newwearshop.impl.DomParser;
+import com.solvd.newwearshop.impl.JaxbParser;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -16,11 +16,11 @@ public class Main {
         String XmlFilePath = "src/main/resources/buyerData.xml";
 
         //DOM realisation
-        DomParsableImpl domPars = new DomParsableImpl();
+        DomParser domPars = new DomParser();
         LOGGER.debug(domPars.parse(XmlFilePath));
 
         //JAXB realisation
-        JaxbParsableImpl jaxbPars = new JaxbParsableImpl();
+        JaxbParser jaxbPars = new JaxbParser();
         LOGGER.debug(jaxbPars.parse(XmlFilePath));
     }
 }
