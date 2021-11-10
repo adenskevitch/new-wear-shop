@@ -12,34 +12,17 @@ public class Buyer {
     private double money;
     private Map<String, Integer> sizes;
 
-    public Buyer(Map<String, Integer> sizes, double money) {
+    public Buyer(Map<String, Integer> sizes, Double money) {
         this.sizes = sizes;
         this.money = money;
     }
 
-    public boolean selectProduct(Product product) {
-        boolean selected = false;
-        if (ProductType.PANTS.equals(product.getProductType())) {
-            selected = product.getProductCost() < 150;
-        } else if (ProductType.OUTERWEAR.equals(product.getProductType())) {
-            selected = product.getProductCost() < 300;
-        } else if (ProductType.SHIRT.equals(product.getProductType())) {
-            selected = product.getProductCost() < 100;
-        }
-        if (selected) {
-            LOGGER.debug(product.getProductType().getDescription() + " was added.");
-        }
-        return selected;
-    }
-
-    public void buy(ShoppingCart shoppingCart) throws Exception {
-        if (shoppingCart.getTotalPrice() > this.getMoney()) {
-            throw new Exception("Not enough money...");
-        } else {
-            this.money = this.money - shoppingCart.getTotalPrice();
-            LOGGER.debug("Balance at the moment " + new Date() + "....  " + this.getMoney());
-            LOGGER.debug("Purchase made...");
-        }
+    @Override
+    public String toString() {
+        return "Buyer{" +
+                "money=" + money +
+                ", sizes=" + sizes +
+                '}';
     }
 
     public double getMoney() {

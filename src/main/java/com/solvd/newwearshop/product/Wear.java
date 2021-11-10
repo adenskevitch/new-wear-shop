@@ -1,6 +1,5 @@
-package com.solvd.newwearshop;
+package com.solvd.newwearshop.product;
 
-import com.solvd.newwearshop.parameters.FabricParameter;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
