@@ -1,37 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<buyers xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="file:///D:/new/java/new-wear-shop/src/main/resources/buyerData.xsd">
+<shop xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="file:///D:/new/java/new-wear-shop/src/main/resources/buyerData.xsd">
     <buyer firstName="Ivan">
         <money>600.00</money>
         <sizes>
-            <size>
-                <param>height</param>
-                <paramValue>170</paramValue>
-            </size>
-            <size>
-                <param>chest</param>
-                <paramValue>80</paramValue>
-            </size>
-            <size>
-                <param>waist</param>
-                <paramValue>50</paramValue>
-            </size>
+            <entry>
+                <key>height</key>
+                <value>170</value>
+            </entry>
+            <entry>
+                <key>chest</key>
+                <value>80</value>
+            </entry>
+            <entry>
+                <key>waist</key>
+                <value>50</value>
+            </entry>
         </sizes>
     </buyer>
     <buyer firstName="Vladimir">
         <money>800.00</money>
         <sizes>
-            <size>
-                <param>height</param>
-                <paramValue>180</paramValue>
-            </size>
-            <size>
-                <param>chest</param>
-                <paramValue>85</paramValue>
-            </size>
-            <size>
-                <param>waist</param>
-                <paramValue>55</paramValue>
-            </size>
+            <entry>
+                <key>height</key>
+                <value>180</value>
+            </entry>
+            <entry>
+                <key>chest</key>
+                <value>85</value>
+            </entry>
+            <entry>
+                <key>waist</key>
+                <value>55</value>
+            </entry>
         </sizes>
     </buyer>
-</buyers>
+</shop>

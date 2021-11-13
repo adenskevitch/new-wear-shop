@@ -1,20 +1,26 @@
 package com.solvd.newwearshop;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
-
+import javax.xml.bind.annotation.*;
 import java.util.*;
 
+@XmlRootElement(namespace = "com.solvd.newwearshop.Shop")
+@XmlType(name = "buyer", propOrder = {"money", "sizes"})
+@XmlAccessorType(XmlAccessType.FIELD)
 public class Buyer {
 
-    private static final Logger LOGGER = LogManager.getLogger();
-
+    @XmlElement(name = "money")
     private double money;
+    @XmlElement(name = "sizes")
     private Map<String, Integer> sizes;
+    @XmlAttribute(name = "firstName")
+    private String firstName;
 
     public Buyer(Map<String, Integer> sizes, Double money) {
         this.sizes = sizes;
         this.money = money;
+    }
+
+    public Buyer() {
     }
 
     @Override
@@ -22,6 +28,7 @@ public class Buyer {
         return "Buyer{" +
                 "money=" + money +
                 ", sizes=" + sizes +
+                ", firstName='" + firstName + '\'' +
                 '}';
     }
 
@@ -39,5 +46,13 @@ public class Buyer {
 
     public void setMoney(double money) {
         this.money = this.money + money;
+    }
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
     }
 }
