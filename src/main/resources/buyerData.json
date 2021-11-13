@@ -1,0 +1,22 @@
+{
+  "buyers": [
+    {
+      "money": 600.00,
+      "sizes": {
+        "height": 170,
+        "chest": 80,
+        "waist": 50
+      },
+      "firstName": "Vladimir"
+    },
+    {
+      "money": 800.00,
+      "sizes": {
+        "height": 180,
+        "chest": 85,
+        "waist": 55
+      },
+      "firstName": "Ivan"
+    }
+  ]
+}

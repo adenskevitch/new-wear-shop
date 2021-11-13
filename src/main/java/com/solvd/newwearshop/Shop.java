@@ -1,5 +1,7 @@
 package com.solvd.newwearshop;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import javax.xml.bind.annotation.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -10,6 +12,7 @@ import java.util.List;
 public class Shop {
 
     @XmlElement(name = "buyer")
+    @JsonProperty("buyers")
     private List<Buyer> buyers = new ArrayList<>();
 
     public List<Buyer> getBuyers() {

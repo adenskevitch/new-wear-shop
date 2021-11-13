@@ -1,5 +1,7 @@
 package com.solvd.newwearshop;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import javax.xml.bind.annotation.*;
 import java.util.*;
 
@@ -9,10 +11,13 @@ import java.util.*;
 public class Buyer {
 
     @XmlElement(name = "money")
+    @JsonProperty("money")
     private double money;
     @XmlElement(name = "sizes")
+    @JsonProperty("sizes")
     private Map<String, Integer> sizes;
     @XmlAttribute(name = "firstName")
+    @JsonProperty("firstName")
     private String firstName;
 
     public Buyer(Map<String, Integer> sizes, Double money) {
