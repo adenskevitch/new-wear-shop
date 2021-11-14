@@ -6,7 +6,7 @@ import javax.xml.bind.annotation.*;
 import java.util.*;
 
 @XmlRootElement(namespace = "com.solvd.newwearshop.Shop")
-@XmlType(name = "buyer", propOrder = {"money", "sizes"})
+//@XmlType(name = "buyer", propOrder = {"money", "sizes"})
 @XmlAccessorType(XmlAccessType.FIELD)
 public class Buyer {
 
@@ -19,6 +19,9 @@ public class Buyer {
     @XmlAttribute(name = "firstName")
     @JsonProperty("firstName")
     private String firstName;
+    @XmlElement(name = "birthday")
+    @JsonProperty("birthday")
+    private Date birthday;
 
     public Buyer(Map<String, Integer> sizes, Double money) {
         this.sizes = sizes;
@@ -34,6 +37,7 @@ public class Buyer {
                 "money=" + money +
                 ", sizes=" + sizes +
                 ", firstName='" + firstName + '\'' +
+                ", birthday=" + birthday +
                 '}';
     }
 
@@ -59,5 +63,13 @@ public class Buyer {
 
     public void setFirstName(String firstName) {
         this.firstName = firstName;
+    }
+
+    public Date getBirthday() {
+        return birthday;
+    }
+
+    public void setBirthday(Date birthday) {
+        this.birthday = birthday;
     }
 }

@@ -7,7 +7,8 @@
         "chest": 80,
         "waist": 50
       },
-      "firstName": "Vladimir"
+      "firstName": "Vladimir",
+      "birthday": "1990-11-23"
     },
     {
       "money": 800.00,
@@ -16,7 +17,8 @@
         "chest": 85,
         "waist": 55
       },
-      "firstName": "Ivan"
+      "firstName": "Ivan",
+      "birthday": "1993-12-03"
     }
   ]
 }

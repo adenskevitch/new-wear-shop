@@ -28,8 +28,13 @@
         </xs:sequence>
     </xs:complexType>
 
+    <xs:simpleType name="birthdayType">
+        <xs:restriction base="xs:dateTime"/>
+    </xs:simpleType>
+
     <xs:complexType name="buyerType">
         <xs:sequence>
+            <xs:element type="birthdayType" name="birthday"/>
             <xs:element type="moneyType" name="money"/>
             <xs:element type="sizesType" name="sizes"/>
         </xs:sequence>
