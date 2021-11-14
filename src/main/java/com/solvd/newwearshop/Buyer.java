@@ -6,7 +6,7 @@ import javax.xml.bind.annotation.*;
 import java.util.*;
 
 @XmlRootElement(namespace = "com.solvd.newwearshop.Shop")
-//@XmlType(name = "buyer", propOrder = {"money", "sizes"})
+@XmlType(name = "buyer", propOrder = {"birthday", "money", "sizes"})
 @XmlAccessorType(XmlAccessType.FIELD)
 public class Buyer {
 
