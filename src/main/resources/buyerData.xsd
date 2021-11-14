@@ -32,6 +32,10 @@
         <xs:restriction base="xs:dateTime"/>
     </xs:simpleType>
 
+    <xs:simpleType name="todayType">
+        <xs:restriction base="xs:date"/>
+    </xs:simpleType>
+
     <xs:complexType name="buyerType">
         <xs:sequence>
             <xs:element type="birthdayType" name="birthday"/>
@@ -43,7 +47,8 @@
 
     <xs:complexType name="byersType">
         <xs:sequence maxOccurs="unbounded">
-            <xs:element type="buyerType" name="buyer"/>
+            <xs:element type="todayType" name="today"/>
+            <xs:element type="buyerType" name="buyer" maxOccurs="unbounded"/>
         </xs:sequence>
     </xs:complexType>
 

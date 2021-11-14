@@ -1,8 +1,11 @@
 package com.solvd.newwearshop;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.solvd.newwearshop.impl.JaxbParser;
 
 import javax.xml.bind.annotation.*;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+import java.time.LocalDateTime;
 import java.util.*;
 
 @XmlRootElement(namespace = "com.solvd.newwearshop.Shop")
@@ -20,8 +23,9 @@ public class Buyer {
     @JsonProperty("firstName")
     private String firstName;
     @XmlElement(name = "birthday")
+    @XmlJavaTypeAdapter(value = JaxbParser.class)
     @JsonProperty("birthday")
-    private Date birthday;
+    private LocalDateTime birthday;
 
     public Buyer(Map<String, Integer> sizes, Double money) {
         this.sizes = sizes;
@@ -65,11 +69,11 @@ public class Buyer {
         this.firstName = firstName;
     }
 
-    public Date getBirthday() {
+    public LocalDateTime getBirthday() {
         return birthday;
     }
 
-    public void setBirthday(Date birthday) {
+    public void setBirthday(LocalDateTime birthday) {
         this.birthday = birthday;
     }
 }

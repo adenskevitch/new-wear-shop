@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<shop xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="file:///D:/new/java/new-wear-shop/src/main/resources/buyerData.xsd">
+<shop xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="file:///D:/new/java/new-wear-shop/src/main/resources/buyerData.xsd">
+    <today>2021-11-14</today>
     <buyer firstName="Ivan">
         <birthday>1990-11-23T01:00:00</birthday>
         <money>600.00</money>

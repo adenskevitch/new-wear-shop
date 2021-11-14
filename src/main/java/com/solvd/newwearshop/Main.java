@@ -6,8 +6,6 @@ import com.solvd.newwearshop.impl.JaxbParser;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import javax.xml.bind.JAXBException;
-
 public class Main {
 
     private static final Logger LOGGER = LogManager.getLogger();
@@ -17,9 +15,9 @@ public class Main {
         String XmlFilePath = "src/main/resources/buyerData.xml";
         String jsonFilePath = "src/main/resources/buyerData.json";
 
-//        //DOM realisation
-//        DomParser domPars = new DomParser();
-//        LOGGER.debug(domPars.parse(XmlFilePath));
+        //DOM realisation
+        DomParser domPars = new DomParser();
+        LOGGER.debug(domPars.parse(XmlFilePath));
 
         //JAXB realisation
         JaxbParser jaxbPars = new JaxbParser();

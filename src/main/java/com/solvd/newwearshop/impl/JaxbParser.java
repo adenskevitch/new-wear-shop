@@ -8,11 +8,23 @@ import org.apache.logging.log4j.Logger;
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Unmarshaller;
+import javax.xml.bind.annotation.adapters.XmlAdapter;
 import java.io.File;
+import java.time.LocalDateTime;
 
-public class JaxbParser implements Parser {
+public class JaxbParser extends XmlAdapter<String, LocalDateTime> implements Parser {
 
     private static final Logger LOGGER = LogManager.getLogger();
+
+    @Override
+    public LocalDateTime unmarshal(String date) throws Exception {
+        return LocalDateTime.parse(date);
+    }
+
+    @Override
+    public String marshal(LocalDateTime date) throws Exception {
+        return date.toString();
+    }
 
     @Override
     public Shop parse(String pathToXml) {

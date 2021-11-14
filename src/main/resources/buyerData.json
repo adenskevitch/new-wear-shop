@@ -1,4 +1,5 @@
 {
+  "todayDay": "2021-11-14",
   "buyers": [
     {
       "money": 600.00,
@@ -8,7 +9,7 @@
         "waist": 50
       },
       "firstName": "Vladimir",
-      "birthday": "1990-11-23"
+      "birthday": "1990-11-23T01:00:00"
     },
     {
       "money": 800.00,
@@ -18,7 +19,7 @@
         "waist": 55
       },
       "firstName": "Ivan",
-      "birthday": "1993-12-03"
+      "birthday": "1993-12-03T01:00:00"
     }
   ]
 }
