@@ -15,9 +15,9 @@ public class Main {
         String XmlFilePath = "src/main/resources/buyerData.xml";
         String jsonFilePath = "src/main/resources/buyerData.json";
 
-        //DOM realisation
-        DomParser domPars = new DomParser();
-        LOGGER.debug(domPars.parse(XmlFilePath));
+//        //DOM realisation
+//        DomParser domPars = new DomParser();
+//        LOGGER.debug(domPars.parse(XmlFilePath));
 
         //JAXB realisation
         JaxbParser jaxbPars = new JaxbParser();
@@ -25,6 +25,6 @@ public class Main {
 
         //Jackson realisation
         JacksonParser jacksonParser = new JacksonParser();
-        System.out.println(jacksonParser.parse(jsonFilePath));
+        LOGGER.debug(jacksonParser.parse(jsonFilePath));
     }
 }
