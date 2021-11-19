@@ -1,0 +1,25 @@
+{
+  "today": "2021-11-14",
+  "buyers": [
+    {
+      "money": 600.00,
+      "sizes": {
+        "height": 170,
+        "chest": 80,
+        "waist": 50
+      },
+      "firstName": "Vladimir",
+      "birthday": "1990-11-23T01:00:00"
+    },
+    {
+      "money": 800.00,
+      "sizes": {
+        "height": 180,
+        "chest": 85,
+        "waist": 55
+      },
+      "firstName": "Ivan",
+      "birthday": "1993-12-03T01:00:00"
+    }
+  ]
+}
